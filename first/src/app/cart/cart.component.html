@@ -1,0 +1,9 @@
+<p>cart works!</p>
+<div *ngIf="isLoggedIn">
+    <h1>User logged In</h1>
+    <p>User is : {{ user.name }}</p>
+</div>
+<div *ngIf="!isLoggedIn">
+    <h1>User Not logged In</h1>
+    <p>User is : </p>
+</div>

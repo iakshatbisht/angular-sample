@@ -1,0 +1,19 @@
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <div class="form-group" >
+        <label for="name">Character Name</label>
+        <input type="text" name="name" id="name" formControlName="name" class="form-control">
+        <span *ngIf="!signUpForm.controls.name.valid && signUpForm.controls.name.touched" class="help-block"> Please enter a valid user name.</span>
+    </div>
+    <div class="form-group">
+        <label for="side">Choose Side</label>
+        <select name="side" id="side" class="form-control" formControlName="side">
+            <option *ngFor="let option of availableSides"
+            [value]="option.value">
+                {{ option.display }}
+            </option>
+        </select>
+        <span *ngIf="!signUpForm.controls.side.valid && signUpForm.controls.side.touched" class="help-block"> Please select a side.</span>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="signUpForm.invalid">Add Character</button>
+    <span *ngIf="!signUpForm.valid && signUpForm.controls.touched" class="help-block"> Please enter a valid data.</span>
+</form>
